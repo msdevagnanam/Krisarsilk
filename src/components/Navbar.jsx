@@ -22,6 +22,14 @@ const Navbar = () => {
 
   }, []);
 
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Our Products", href: "#products" },
+    { name: "New Arrivals", href: "#new-arrivals" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
 
     <div
@@ -44,28 +52,13 @@ const Navbar = () => {
         {!scrolled && (
           <>
             {/* LEFT MENU */}
-            <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
-
-              <li className="relative cursor-pointer group">
-                Home
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
-              <li className="relative cursor-pointer group">
-                Our Products
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
-              <li className="relative cursor-pointer group">
-                Silks Sarees
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
-              <li className="relative cursor-pointer group">
-                New Arrivals
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
+            <ul className="hidden md:flex gap-8 text-gray-700 font-medium whitespace-nowrap">
+              {navLinks.slice(0, 3).map((link) => (
+                <li key={link.name} className="relative cursor-pointer group">
+                  <a href={link.href}>{link.name}</a>
+                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
+                </li>
+              ))}
             </ul>
 
             {/* CENTER LOGO */}
@@ -112,37 +105,12 @@ const Navbar = () => {
 
             {/* RIGHT MENU */}
             <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
-
-              <li className="relative cursor-pointer group">
-                Home
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
-              <li className="relative cursor-pointer group">
-                About
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
-              <li className="relative cursor-pointer group">
-                Our Products
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
-              <li className="relative cursor-pointer group">
-                Silks Sarees
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
-              <li className="relative cursor-pointer group">
-                New Arrivals
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
-              <li className="relative cursor-pointer group">
-                Contact
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </li>
-
+              {navLinks.map((link) => (
+                <li key={link.name} className="relative cursor-pointer group">
+                  <a href={link.href}>{link.name}</a>
+                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
+                </li>
+              ))}
             </ul>
           </>
         )}
@@ -160,21 +128,28 @@ const Navbar = () => {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden bg-white border-t transition-all duration-300 overflow-hidden animate-fadeIn">
 
           <ul className="flex flex-col items-center gap-6 py-6 text-gray-700 font-medium">
-
-            <li>Home</li>
-            <li>About</li>
-            <li>Our Products</li>
-            <li>Silks Sarees</li>
-            <li>New Arrivals</li>
-            <li>Contact</li>
-
+            {navLinks.map((link) => (
+              <li key={link.name} onClick={() => setMenuOpen(false)}>
+                <a href={link.href}>{link.name}</a>
+              </li>
+            ))}
           </ul>
 
         </div>
       )}
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out forwards;
+        }
+      `}</style>
 
     </div>
 
