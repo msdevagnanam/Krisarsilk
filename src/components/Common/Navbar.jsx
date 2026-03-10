@@ -24,10 +24,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
     { name: "Our Products", href: "/ourproducts" },
-    { name: "Silksarees", href: "/silksarees" },
+    { name: "Silks Sarees", href: "/silksarees" },
     { name: "New Arrivals", href: "/newarrivals" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contacts" },
   ];
 
@@ -54,7 +54,7 @@ const Navbar = () => {
           <>
             {/* LEFT MENU */}
             <ul className="hidden md:flex gap-8 text-gray-700 font-medium whitespace-nowrap">
-              {navLinks.slice(0, 3).map((link) => (
+              {navLinks.slice(0, 4).map((link) => (
                 <li key={link.name} className="relative cursor-pointer group">
                   <a href={link.href}>{link.name}</a>
                   <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
