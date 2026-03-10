@@ -37,15 +37,15 @@ const SocialSidebar = () => {
   ];
 
   return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 flex flex-col z-40">
+    <div className="fixed bottom-4 right-2 md:bottom-auto md:right-0 md:top-1/2 md:-translate-y-1/2 flex flex-col z-40 items-center justify-center gap-1 md:gap-0 bg-white/20 backdrop-blur-sm md:bg-transparent p-1 md:p-0 rounded-xl md:rounded-none shadow-xl md:shadow-none border border-white/30 md:border-none">
       {socialLinks.map((link, index) => (
         <a
           key={index}
           href={link.href}
           aria-label={link.label}
-          className={`w-10 h-10 flex items-center justify-center text-white transition-all duration-300 hover:w-12 group ${link.color} shadow-lg last:rounded-bl-md first:rounded-tl-md`}
+          className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-white transition-all duration-300 md:hover:w-12 group ${link.color} shadow-lg rounded-lg md:rounded-none md:last:rounded-bl-md md:first:rounded-tl-md`}
         >
-          <span className="text-xl group-hover:scale-110 transition-transform">
+          <span className="text-lg md:text-xl md:group-hover:scale-110 transition-transform">
             {link.icon}
           </span>
         </a>

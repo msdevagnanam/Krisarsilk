@@ -23,11 +23,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Our Products", href: "#products" },
-    { name: "New Arrivals", href: "#new-arrivals" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Our Products", href: "/ourproducts" },
+    { name: "New Arrivals", href: "/newarrivals" },
+    { name: "Contact", href: "/contacts" },
   ];
 
   return (
@@ -128,15 +128,31 @@ const Navbar = () => {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t transition-all duration-300 overflow-hidden animate-fadeIn">
+        <div className="md:hidden bg-white border-t transition-all duration-300 overflow-hidden animate-fadeIn fixed top-[70px] left-0 w-full h-[calc(100vh-70px)] z-50">
+          
+          <div className="flex flex-col h-full">
+            <ul className="flex flex-col items-center gap-6 py-10 text-gray-700 font-medium text-lg">
+              {navLinks.map((link) => (
+                <li key={link.name} onClick={() => setMenuOpen(false)}>
+                  <a href={link.href} className="hover:text-black transition-colors">{link.name}</a>
+                </li>
+              ))}
+            </ul>
 
-          <ul className="flex flex-col items-center gap-6 py-6 text-gray-700 font-medium">
-            {navLinks.map((link) => (
-              <li key={link.name} onClick={() => setMenuOpen(false)}>
-                <a href={link.href}>{link.name}</a>
-              </li>
-            ))}
-          </ul>
+            <div className="mt-auto border-t p-8 bg-gray-50">
+              <p className="text-center text-gray-500 mb-6 font-semibold uppercase tracking-wider text-sm">Contact Us</p>
+              <div className="flex flex-col gap-5 items-center">
+                <div className="flex items-center gap-3 text-gray-700">
+                  <LuPhoneCall className="text-green-600 w-6 h-6"/>
+                  <span className="text-lg">+91 9443136387</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-700">
+                  <FaWhatsapp className="text-green-600 w-6 h-6"/>
+                  <span className="text-lg">+91 9443136387</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
       )}

@@ -1,22 +1,21 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Herosection from '../components/Herosection'
-import Silkcreation from '../components/Silkcreation'
-import AboutSection from '../components/AboutSection'
-import CounterSection from '../components/CounterSection'
-import BenefitsSection from '../components/BenefitsSection'
-import TopCategories from '../components/TopCategories'
-import NewArrivals from '../components/NewArrivals'
-import StrengthBanner from '../components/StrengthBanner'
-import BestSelling from '../components/BestSelling'
-import Footer from '../components/Footer'
-import SocialSidebar from '../components/SocialSidebar'
-import VisitUs from '../components/VisitUs'
+import Navbar from '../components/Common/Navbar'
+import Herosection from '../components/herosection/Herosection'
+import Silkcreation from '../components/herosection/Silkcreation'
+import AboutSection from '../components/herosection/AboutSection'
+import CounterSection from '../components/herosection/CounterSection'
+import BenefitsSection from '../components/herosection/BenefitsSection'
+import TopCategories from '../components/herosection/TopCategories'
+import NewArrivals from '../components/herosection/NewArrivals'
+import StrengthBanner from '../components/herosection/StrengthBanner'
+import BestSelling from '../components/herosection/BestSelling'
+import Footer from '../components/Common/Footer'
+import SocialSidebar from '../components/Common/SocialSidebar'
+import VisitUs from '../components/herosection/VisitUs'
 
 const Home = () => {
   return (
     <>
-    <Navbar />
     <SocialSidebar />
     <div className="p-0"> 
       <Herosection />
@@ -29,7 +28,6 @@ const Home = () => {
       <BestSelling />
       <BenefitsSection />
       <VisitUs />
-      <Footer />
     </div>
     
     

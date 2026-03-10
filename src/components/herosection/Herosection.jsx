@@ -34,7 +34,7 @@ const HeroBanner = () => {
 
   return (
 
-    <div id="home" className="relative w-full lg:h-[60vh] sm:h-[50vh] h-[15vh] overflow-hidden">
+    <div id="home" className="relative w-full lg:h-[60vh] md:h-[50vh] sm:h-[40vh] h-[30vh] overflow-hidden">
 
       {/* Zoom-fade keyframes */}
       <style>{`
@@ -58,7 +58,7 @@ const HeroBanner = () => {
       <img
         src={images[nextIndex]}
         alt="banner"
-        className="w-full h-auto absolute inset-0 object-cover"
+        className="w-full h-full absolute inset-0 object-cover"
         style={{ zIndex: 1 }}
       />
 
@@ -67,7 +67,7 @@ const HeroBanner = () => {
         key={`zoom-${current}-${animKey}`}
         src={images[current]}
         alt="banner"
-        className="w-full h-auto absolute inset-0 object-cover"
+        className="w-full h-full absolute inset-0 object-cover"
         style={{
           zIndex: 2,
           animation: `zoomFade 5s ease-in-out forwards`,
